@@ -10,7 +10,7 @@ export const startServer = () => {
   const app = express();
 
   app.use(cors({
-    origin: ['http://localhost:3000', 'http://example.com'],
+    origin: ['http://localhost:5173', 'http://example.com'],  // Cambia el puerto a 5173
   }));
 
   app.use(express.json());

@@ -15,6 +15,8 @@ export const startServer = () => {
     allowedHeaders: ['Content-Type', 'Authorization'],  // Permite cabeceras necesarias
   }));
 
+  app.options('*', cors());
+
   app.use(express.json());
 
   app.use('/api/auth', authRoutes);

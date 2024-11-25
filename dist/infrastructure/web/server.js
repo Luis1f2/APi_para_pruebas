@@ -14,7 +14,7 @@ const authRoutes_1 = __importDefault(require("./routes/authRoutes"));
 const startServer = () => {
     const app = (0, express_1.default)();
     app.use((0, cors_1.default)({
-        origin: ['http://localhost:5173', 'http://3.86.77.65'],
+        origin: 'http://3.86.77.65',
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
         allowedHeaders: ['Content-Type', 'Authorization'],
         credentials: true,

@@ -11,7 +11,7 @@ export const startServer = () => {
 
   app.use(
     cors({
-      origin: ['http://localhost:5173', 'http://3.86.77.65'],
+      origin: 'http://3.86.77.65', 
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       allowedHeaders: ['Content-Type', 'Authorization'],
       credentials: true, 

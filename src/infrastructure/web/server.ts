@@ -9,17 +9,15 @@ import authRoutes from './routes/authRoutes';
 export const startServer = () => {
   const app = express();
 
-  // Configuración de CORS
   app.use(
     cors({
-      origin: 'http://localhost:5173', // Permitir solicitudes desde localhost:5173
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos permitidos
-      allowedHeaders: ['Content-Type', 'Authorization'], // Cabeceras permitidas
-      credentials: true, // Si necesitas incluir cookies u otros encabezados de autenticación
+      origin: ['http://localhost:5173', 'http://3.86.77.65'],
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: true, 
     })
   );
 
-  // Manejo de solicitudes preflight (OPTIONS)
   app.use((req, res, next) => {
     if (req.method === 'OPTIONS') {
       res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -32,7 +30,6 @@ export const startServer = () => {
 
   app.use(express.json());
 
-  // Rutas
   app.use('/api/auth', authRoutes);
   app.use('/api', sensorRoutes);
   app.use('/api', sensorECGRoutes);
